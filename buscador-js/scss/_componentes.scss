@@ -1,0 +1,618 @@
+
+/* ==========================================
+   pura lectura
+   estilos personalizados del sitio web
+   ========================================== */
+
+/* variables css */
+:root {
+  --espacio-tarjetas: 1.25rem;
+  --duracion: 280ms;
+}
+
+/* ==========================================
+   estilos generales
+   ========================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background:
+    linear-gradient(
+      rgba(0, 38, 30, 0.83),
+      rgba(0, 38, 30, 0.88)
+    ),
+    url('../assets/imagenes/mar.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #fffaf1;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+}
+
+/* ==========================================
+   barra de navegación
+   ========================================== */
+
+.navbar {
+  padding: 1rem 0;
+  background-color: #103e30;
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    color: #fffaf1;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.8rem;
+
+    &:hover,
+    &:focus {
+      color: #fffaf1;
+    }
+  }
+
+  .nav-link {
+    color: #fffaf1;
+    font-size: 1.1rem;
+    font-weight: 700;
+
+    &:hover,
+    &:focus {
+      color: #f2bd83;
+    }
+  }
+
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.25);
+
+    &:focus {
+      box-shadow: 0 0 0 0.15rem rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.marca-icono {
+  font-size: 1.7rem;
+}
+
+/* ==========================================
+   encabezado principal
+   enfoque mobile-first
+   ========================================== */
+
+.hero-club {
+  display: flex;
+  align-items: center;
+  min-height: auto;
+  padding: 3rem 0 3.5rem;
+  background: transparent;
+
+  h1 {
+    max-width: 700px;
+    margin-bottom: 1.25rem;
+
+    color: #fffaf1;
+    font-size: clamp(2.5rem, 9vw, 3.5rem);
+    line-height: 1.08;
+    overflow-wrap: normal;
+  }
+}
+
+.hero-contenido {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.hero-texto {
+  min-width: 0;
+
+  .lead {
+    max-width: 650px;
+    margin-bottom: 0;
+
+    color: #fffaf1;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+.hero-etiqueta {
+  margin-bottom: 1rem;
+  color: #f2bd83;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* botones del encabezado */
+
+.hero-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+
+  .btn {
+    padding: 0.75rem 1.15rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: normal;
+  }
+
+  .btn-secondary {
+    color: #fff;
+    background-color: #007b55;
+    border-color: #007b55;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      background-color: #006746;
+      border-color: #006746;
+    }
+  }
+
+  .btn-outline-light {
+    color: #fffaf1;
+    border: 2px solid #fffaf1;
+
+    &:hover,
+    &:focus {
+      color: #103e30;
+      background-color: #fffaf1;
+    }
+  }
+}
+
+/* el logo se oculta en celulares y tabletas */
+
+.hero-logo {
+  display: none;
+}
+
+/* ==========================================
+   paneles principales
+   ========================================== */
+
+.panel-club {
+  padding: 1.25rem;
+
+  color: #20392e;
+  background-color: #fffaf1;
+  border: 1px solid #e9dcc9;
+  border-radius: 1.5rem;
+
+  box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.12);
+
+  h2 {
+    color: #103e30;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+  }
+
+  h3 {
+    color: #103e30;
+  }
+
+  p,
+  label {
+    color: #20392e;
+  }
+}
+
+.seccion-encabezado {
+  margin-bottom: 1.5rem;
+
+  h2 {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.seccion-etiqueta {
+  margin-bottom: 0.5rem;
+  color: #b75a2c;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.texto-suave {
+  color: #68766a;
+}
+
+/* ==========================================
+   botones generales
+   ========================================== */
+
+.btn {
+  border-radius: 2rem;
+  padding: 0.7rem 1.4rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+
+  transition:
+    transform var(--duracion) ease,
+    box-shadow var(--duracion) ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* ==========================================
+   formularios
+   ========================================== */
+
+.form-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.form-control,
+.form-select {
+  padding: 0.75rem 1rem;
+
+  color: #20392e;
+  background-color: #fffdf8;
+  border: 1px solid #c9cbb9;
+  border-radius: 1rem;
+
+  font-size: 1.05rem;
+
+  &:focus {
+    border-color: #08744f;
+    box-shadow: 0 0 0 0.2rem rgba(8, 116, 79, 0.15);
+  }
+}
+
+/* ==========================================
+   resultados de búsqueda
+   ========================================== */
+
+.resultados-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--espacio-tarjetas);
+}
+
+/* tarjetas de libros */
+
+.libro-card {
+  @include superficie();
+  padding: espacio(2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-width: 0;
+
+  color: #20392e;
+  background-color: #fffdf8;
+  border: 1px solid #e9dcc9;
+  border-radius: 1.25rem;
+
+  transition:
+    transform var(--duracion) ease,
+    box-shadow var(--duracion) ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.8rem 1.5rem rgba(25, 71, 53, 0.12);
+  }
+
+  .portada {
+    width: 100%;
+    height: 14rem;
+    padding: 0.75rem;
+
+    object-fit: contain;
+    background-color: #e7ecdf;
+    border-radius: 1rem;
+  }
+
+  h3 {
+    margin: 0;
+    color: #103e30;
+    font-size: 1.35rem;
+  }
+
+  p,
+  .texto-suave {
+    color: #39483f;
+  }
+
+  .acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+}
+
+/* ==========================================
+   tabla de lecturas
+   ========================================== */
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: #20392e;
+  --bs-table-hover-bg: #eee6d7;
+  --bs-table-hover-color: #20392e;
+  --bs-table-border-color: #d8d4c9;
+
+  font-size: 1.05rem;
+
+  thead {
+    border-bottom: 2px solid #103e30;
+  }
+
+  th {
+    color: #103e30;
+  }
+}
+
+/* animaciones de la lista */
+
+.fila-lectura {
+  transition:
+    opacity var(--duracion) ease,
+    transform var(--duracion) ease,
+    background-color var(--duracion) ease;
+
+  &.entrando {
+    animation: aparecer 360ms ease both;
+  }
+
+  &.cambiando {
+    background-color: #f6e2b8;
+  }
+
+  &.saliendo {
+    opacity: 0;
+    transform: translateX(1.2rem);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   autores dinámicos
+   ========================================== */
+
+.campo-autor {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+
+  .campo-con-error {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* ==========================================
+   modal de bootstrap
+   ========================================== */
+
+.modal-content {
+  color: #20392e;
+  background-color: #fffaf1;
+  border: none;
+  border-radius: 1.5rem;
+}
+
+.modal-header {
+  background-color: #e4eddb;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+/* ==========================================
+   alertas
+   ========================================== */
+
+.alert {
+  font-size: 1.05rem;
+}
+
+/* ==========================================
+   pie de página
+   ========================================== */
+
+footer {
+  background-color: #103e30;
+  color: #fffaf1;
+}
+
+/* ==========================================
+   tabletas: desde 576px
+   ========================================== */
+
+@media (min-width: 576px) {
+  .resultados-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .panel-club {
+    padding: 2rem;
+  }
+
+  .hero-club {
+    padding: 4rem 0;
+  }
+
+  .hero-club h1 {
+    font-size: clamp(3.5rem, 6vw, 5rem);
+  }
+
+  .hero-texto .lead {
+    font-size: 1.25rem;
+  }
+
+  .hero-etiqueta {
+    font-size: 1rem;
+  }
+
+  .hero-acciones .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ==========================================
+   computadora: desde 992px
+   ========================================== */
+
+@media (min-width: 992px) {
+  .hero-club {
+    min-height: 470px;
+    padding: 4rem 0 5rem;
+  }
+
+  .hero-contenido {
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 3rem;
+  }
+
+  .hero-club h1 {
+    font-size: clamp(3.2rem, 6vw, 5.5rem);
+  }
+
+  .hero-texto .lead {
+    font-size: 1.35rem;
+  }
+
+  .hero-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-logo img {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border-radius: 50%;
+    filter: drop-shadow(
+      0 12px 24px rgba(0, 0, 0, 0.3)
+    );
+  }
+
+  .resultados-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ==========================================
+   ajustes para celulares pequeños
+   ========================================== */
+
+@media (max-width: 575.98px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .navbar .navbar-brand {
+    font-size: 1.55rem;
+  }
+
+  .navbar .nav-link {
+    font-size: 1rem;
+  }
+
+  .hero-club {
+    padding: 2.5rem 0 3rem;
+  }
+
+  .hero-club h1 {
+    font-size: clamp(2.4rem, 9vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  .hero-texto .lead {
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .hero-etiqueta {
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-acciones {
+    gap: 0.75rem;
+  }
+
+  .hero-acciones .btn {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .panel-club {
+    padding: 1.25rem;
+  }
+
+  .libro-card {
+    padding: 1rem;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================================
+   accesibilidad
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn,
+  .libro-card,
+  .fila-lectura {
+    animation: none;
+    transition: none;
+  }
+}

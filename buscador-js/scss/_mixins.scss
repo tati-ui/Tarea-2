@@ -1,0 +1,6 @@
+@function espacio($multiplicador) { @return $multiplicador * .5rem; }
+@mixin superficie($radio: 1rem) {
+  border-radius: $radio;
+  background: #fff;
+  box-shadow: 0 .4rem 1.5rem rgba(30, 54, 46, .08);
+}

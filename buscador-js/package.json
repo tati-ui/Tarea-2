@@ -1,0 +1,14 @@
+{
+  "name": "estanteria-comun-buscador",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:css": "sass --load-path=node_modules scss/main.scss css/estilos.css --style=compressed",
+    "watch:css": "sass --watch --load-path=node_modules scss/main.scss css/estilos.css",
+    "start": "vite --host 0.0.0.0",
+    "dev": "vite --host 0.0.0.0"
+  },
+  "dependencies": {"bootstrap": "^5.3.3"},
+  "devDependencies": {"sass": "^1.83.0", "vite": "^6.0.0"}
+}

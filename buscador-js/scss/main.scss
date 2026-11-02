@@ -1,0 +1,27 @@
+
+/* ==========================================
+   estantería común
+   archivo principal de estilos sass
+   ========================================== */
+
+/* 1. variables personalizadas del proyecto */
+@import 'variables';
+
+/* 2. funciones y variables de bootstrap */
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+
+/* 3. mapas, mixins y utilidades de bootstrap */
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+
+/* 4. componentes y estilos de bootstrap */
+@import 'bootstrap/scss/bootstrap';
+
+/* 5. mixins personalizados del proyecto */
+@import 'mixins';
+
+/* 6. estilos propios de estantería común */
+@import 'componentes';

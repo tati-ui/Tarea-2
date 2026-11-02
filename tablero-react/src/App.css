@@ -1,0 +1,520 @@
+
+/* ==========================================
+   pura lectura — tablero react
+   diseño responsive verde y crema
+   ========================================== */
+
+:root {
+  --verde: #174b3c;
+  --verde-oscuro: #0c3027;
+  --crema: #fffaf0;
+  --fondo: #f4f1e8;
+  --dorado: #d6a968;
+  --borde: #dcded3;
+  --texto: #193e34;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* estructura */
+
+.aplicacion {
+  min-height: 100vh;
+  background: var(--fondo);
+}
+
+.contenedor {
+  width: min(1120px, calc(100% - 36px));
+  margin-inline: auto;
+}
+
+/* encabezado */
+
+.encabezado {
+  background: var(--verde-oscuro);
+  color: white;
+  padding: 19px 0;
+}
+
+.encabezado .contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.marca {
+  font-family: Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.encabezado span {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* bienvenida */
+
+.hero-tablero {
+  background: linear-gradient(
+    120deg,
+    #103c30,
+    #286b55
+  );
+  color: white;
+  border-radius: 0 0 24px 24px;
+  padding: 65px 48px;
+  margin-bottom: 32px;
+}
+
+.sobre-titulo {
+  color: #e7c891;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.hero-tablero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin-bottom: 20px;
+}
+
+.hero-tablero > p:not(.sobre-titulo) {
+  max-width: 560px;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+
+.enlace-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
+  border-radius: 10px;
+  background: var(--crema);
+  color: var(--verde-oscuro);
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background 180ms ease;
+}
+
+.enlace-hero:hover {
+  background: #e8d9b9;
+}
+
+/* paneles */
+
+.panel {
+  background: var(--crema);
+  border: 1px solid var(--borde);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 26px;
+  box-shadow: 0 12px 35px rgba(16, 60, 48, 0.05);
+}
+
+.panel-encabezado {
+  margin-bottom: 24px;
+}
+
+.panel h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 8px;
+  color: var(--verde-oscuro);
+}
+
+.panel-encabezado p {
+  color: #607267;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* estadísticas */
+
+.resumen {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.estadistica {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #edf2e9;
+  border: 1px solid #dae5d9;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.estadistica strong {
+  font-family: Georgia, serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--verde);
+}
+
+.estadistica span {
+  font-size: 0.88rem;
+  color: #557267;
+}
+
+/* filtros */
+
+.filtros {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.filtros label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.filtros select {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #c7d1c8;
+  border-radius: 10px;
+  background: white;
+  color: var(--texto);
+}
+
+.contador-resultados {
+  margin: 22px 0 18px;
+  color: #62756d;
+  font-size: 0.88rem;
+}
+
+/* tarjetas de libros */
+
+.lista-libros {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.tarjeta-libro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 25px;
+  background: white;
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.tarjeta-libro:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(15, 55, 43, 0.09);
+}
+
+.etiqueta-miembro {
+  display: inline-block;
+  color: #607e6f;
+  font-size: 0.76rem;
+  font-weight: 600;
+  margin-bottom: 13px;
+}
+
+.tarjeta-libro h3 {
+  font-family: Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.autor-libro {
+  color: #607267;
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
+.etiqueta-estado {
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: bold;
+}
+
+.estado-pendiente {
+  background: #f4ead4;
+  color: #80602d;
+}
+
+.estado-leyendo {
+  background: #e1eef0;
+  color: #286271;
+}
+
+.estado-leido {
+  background: #e7f0e8;
+  color: var(--verde);
+}
+
+.tarjeta-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tarjeta-acciones button {
+  border-radius: 9px;
+  padding: 10px 14px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: background 180ms ease;
+}
+
+.boton-secundario {
+  border: 1px solid var(--verde);
+  background: white;
+  color: var(--verde);
+}
+
+.boton-secundario:hover {
+  background: #e8f0e8;
+}
+
+.boton-peligro {
+  border: 1px solid #d89c96;
+  background: white;
+  color: #a93d36;
+}
+
+.boton-peligro:hover {
+  background: #fff0ee;
+}
+
+/* mensaje sin resultados */
+
+.mensaje-vacio {
+  padding: 32px;
+  text-align: center;
+  background: #f0f2e9;
+  border-radius: 12px;
+  color: #62756d;
+}
+
+.mensaje-vacio h3 {
+  font-family: Georgia, serif;
+  color: var(--verde);
+  margin-bottom: 10px;
+}
+
+.mensaje-vacio p {
+  margin-bottom: 0;
+}
+
+/* formulario controlado */
+
+#proponer {
+  scroll-margin-top: 24px;
+}
+
+.formulario-propuesta {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.formulario-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.campo label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  background: white;
+  border: 1px solid #c7d1c8;
+  border-radius: 10px;
+  color: var(--texto);
+}
+
+.campo input::placeholder {
+  color: #8c9b92;
+}
+
+.campo .campo-invalido {
+  border-color: #c84e46;
+  background: #fffafa;
+}
+
+.error-campo {
+  color: #b53e37;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.formulario-pie {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.boton-principal {
+  padding: 13px 22px;
+  background: var(--verde);
+  border: 1px solid var(--verde);
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  transition: background 180ms ease;
+}
+
+.boton-principal:hover {
+  background: var(--verde-oscuro);
+}
+
+.nota-formulario {
+  color: #718178;
+  font-size: 0.8rem;
+}
+
+.mensaje-exito {
+  padding: 15px 18px;
+  background: #dceee3;
+  color: #17573e;
+  border: 1px solid #b6d9c3;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* pie de página */
+
+.pie-pagina {
+  text-align: center;
+  padding: 40px 20px;
+  color: #718178;
+  font-size: 0.8rem;
+}
+
+/* tabletas */
+
+@media (max-width: 800px) {
+  .resumen {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lista-libros {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-tablero {
+    padding: 48px 30px;
+  }
+}
+
+/* celulares */
+
+@media (max-width: 520px) {
+  .contenedor {
+    width: calc(100% - 24px);
+  }
+
+  .marca {
+    font-size: 1.25rem;
+  }
+
+  .hero-tablero {
+    padding: 42px 22px;
+    border-radius: 0 0 18px 18px;
+  }
+
+  .hero-tablero h1 {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+
+  .panel {
+    padding: 20px 16px;
+    border-radius: 15px;
+  }
+
+  .resumen {
+    gap: 10px;
+  }
+
+  .estadistica {
+    padding: 18px 14px;
+  }
+
+  .estadistica strong {
+    font-size: 2rem;
+  }
+
+  .estadistica span {
+    font-size: 0.76rem;
+  }
+
+  .filtros,
+  .formulario-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tarjeta-libro {
+    padding: 20px;
+  }
+
+  .tarjeta-acciones button {
+    flex: 1;
+  }
+
+  .formulario-pie {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .boton-principal {
+    width: 100%;
+  }
+}
+
+/* accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta-libro,
+  .tarjeta-acciones button,
+  .boton-principal,
+  .enlace-hero {
+    transition: none;
+  }
+}

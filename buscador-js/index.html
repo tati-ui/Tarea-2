@@ -1,0 +1,596 @@
+
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- título de la página -->
+  <title>Pura Lectura | Club de lectura de Costa Rica</title>
+
+  <!-- estilos de bootstrap personalizados con sass -->
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+
+<body>
+
+  <!-- ==========================================
+       encabezado y navegación
+       ========================================== -->
+  <header>
+
+    <!-- menú principal -->
+    <nav
+      class="navbar navbar-expand-lg bg-primary"
+      data-bs-theme="dark"
+      aria-label="Navegación principal">
+
+      <div class="container">
+
+        <!-- nombre de la página -->
+        <a class="navbar-brand fw-bold" href="#inicio">
+          Pura Lectura
+        </a>
+
+        <!-- botón del menú para teléfonos -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+          aria-controls="menu"
+          aria-expanded="false"
+          aria-label="Abrir navegación">
+
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- enlaces de navegación -->
+        <div class="collapse navbar-collapse" id="menu">
+
+          <ul class="navbar-nav ms-auto">
+
+            <li class="nav-item">
+              <a class="nav-link" href="#buscar">
+                Buscar
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#lecturas">
+                Mis lecturas
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#proponer">
+                Proponer
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+    <!-- ==========================================
+         presentación principal
+         ========================================== -->
+
+    <!-- la fotografía del mar se coloca desde sass -->
+    <section class="hero-club" id="inicio">
+
+      <div class="container">
+
+        <div class="hero-contenido">
+
+          <!-- texto principal a la izquierda -->
+          <div class="hero-texto">
+
+            <p class="hero-etiqueta">
+              Club de lectura · Costa Rica
+            </p>
+
+            <h1>
+              Historias que nos unen
+            </h1>
+
+            <p class="lead">
+              Explora libros, organiza tus lecturas y propón
+              la próxima historia del club.
+            </p>
+
+            <!-- botones de acceso rápido -->
+            <div class="hero-acciones d-flex flex-wrap gap-3 mt-4">
+
+              <a
+                class="btn btn-secondary btn-lg"
+                href="#buscar">
+
+                Buscar libros
+              </a>
+
+              <a
+                class="btn btn-outline-light btn-lg"
+                href="#proponer">
+
+                Proponer una lectura
+              </a>
+
+            </div>
+
+          </div>
+
+          <!-- logo circular a la derecha -->
+          <div class="hero-logo">
+
+            <img
+              src="./assets/imagenes/logo.png"
+              alt="Logo de Pura Lectura con una mariposa morpho y un libro abierto">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </header>
+
+  <!-- ==========================================
+       contenido principal
+       ========================================== -->
+  <main class="container py-5">
+
+    <!-- ==========================================
+         buscador de libros
+         ========================================== -->
+    <section
+      id="buscar"
+      class="panel-club mb-5"
+      aria-labelledby="titulo-busqueda">
+
+      <!-- título de la sección -->
+      <div class="seccion-encabezado">
+
+        <h2 id="titulo-busqueda">
+          Buscar libros
+        </h2>
+
+      </div>
+
+      <!-- formulario de búsqueda -->
+      <form
+        id="form-busqueda"
+        class="row g-3 mb-3">
+
+        <div class="col-12 col-md-9">
+
+          <label for="consulta" class="form-label">
+            Título o autor
+          </label>
+
+          <input
+            id="consulta"
+            name="consulta"
+            class="form-control"
+            type="search"
+            required
+            minlength="2"
+            placeholder="Ej. Cien años de soledad">
+
+        </div>
+
+        <div class="col-12 col-md-3 d-flex align-items-end">
+
+          <button
+            class="btn btn-primary w-100"
+            type="submit">
+
+            Buscar libros
+
+          </button>
+
+        </div>
+
+      </form>
+
+      <!-- mensaje informativo de la búsqueda -->
+      <div
+        id="mensaje-busqueda"
+        class="alert alert-info"
+        role="status"
+        aria-live="polite">
+
+        Escribe un título o autor para comenzar.
+
+      </div>
+
+      <!-- resultados creados desde javascript -->
+      <div
+        id="resultados"
+        class="resultados-grid"
+        aria-live="polite">
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         lista personal de lecturas
+         ========================================== -->
+    <section
+      id="lecturas"
+      class="panel-club mb-5"
+      aria-labelledby="titulo-lecturas">
+
+      <div class="seccion-encabezado">
+
+        <p class="seccion-etiqueta">
+          Tu biblioteca personal
+        </p>
+
+        <h2 id="titulo-lecturas">
+          Mi lista de lecturas
+        </h2>
+
+        <p class="texto-suave">
+          Organiza tus libros como pendientes,
+          en lectura o leídos.
+        </p>
+
+      </div>
+
+      <!-- tabla adaptable de bootstrap -->
+      <div class="table-responsive">
+
+        <table class="table table-hover align-middle">
+
+          <caption>
+            Libros agregados durante esta sesión
+          </caption>
+
+          <thead>
+
+            <tr>
+              <th scope="col">Libro</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+
+          </thead>
+
+          <!-- javascript agrega las filas -->
+          <tbody id="tabla-lecturas"></tbody>
+
+        </table>
+
+      </div>
+
+      <!-- mensaje cuando no hay libros agregados -->
+      <p
+        id="sin-lecturas"
+        class="alert alert-secondary">
+
+        Todavía no has agregado libros.
+        Puedes comenzar desde el buscador.
+
+      </p>
+
+    </section>
+
+    <!-- ==========================================
+         formulario para proponer una lectura
+         ========================================== -->
+    <section
+      id="proponer"
+      class="panel-club mb-5"
+      aria-labelledby="titulo-propuesta">
+
+      <div class="seccion-encabezado">
+
+        <p class="seccion-etiqueta">
+          Participa en nuestra comunidad
+        </p>
+
+        <h2 id="titulo-propuesta">
+          Proponer una lectura
+        </h2>
+
+        <p>
+          Comparte una historia que te gustaría
+          leer en la próxima sesión del club.
+        </p>
+
+      </div>
+
+      <!-- mensajes de validación y envío -->
+      <div
+        id="alerta-propuesta"
+        role="status"
+        aria-live="polite">
+      </div>
+
+      <!-- formulario con validación personalizada -->
+      <form
+        id="form-propuesta"
+        novalidate
+        class="row g-3">
+
+        <!-- título del libro -->
+        <div class="col-12 col-md-6">
+
+          <label for="titulo" class="form-label">
+            Título
+          </label>
+
+          <input
+            class="form-control"
+            id="titulo"
+            name="titulo"
+            required
+            minlength="2"
+            maxlength="150">
+
+          <div class="invalid-feedback"></div>
+
+        </div>
+
+        <!-- año de publicación -->
+        <div class="col-12 col-md-6">
+
+          <label for="anio" class="form-label">
+            Año de publicación
+          </label>
+
+          <input
+            class="form-control"
+            id="anio"
+            name="anio"
+            type="number"
+            required
+            min="1450"
+            max="2100">
+
+          <div class="invalid-feedback"></div>
+
+        </div>
+
+        <!-- autores agregados dinámicamente -->
+        <div class="col-12">
+
+          <label
+            class="form-label"
+            id="etiqueta-autores">
+
+            Autores (de 1 a 5)
+
+          </label>
+
+          <div
+            id="autores"
+            role="group"
+            aria-labelledby="etiqueta-autores">
+          </div>
+
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-sm mt-2"
+            id="agregar-autor">
+
+            Agregar autor
+
+          </button>
+
+        </div>
+
+        <!-- cantidad de páginas -->
+        <div class="col-12 col-md-6">
+
+          <label for="paginas" class="form-label">
+            Cantidad de páginas
+          </label>
+
+          <input
+            class="form-control"
+            id="paginas"
+            name="paginas"
+            type="number"
+            min="1"
+            max="20000"
+            required>
+
+          <div class="invalid-feedback"></div>
+
+        </div>
+
+        <!-- género literario -->
+        <div class="col-12 col-md-6">
+
+          <label for="genero" class="form-label">
+            Género
+          </label>
+
+          <select
+            class="form-select"
+            id="genero"
+            name="genero"
+            required>
+
+            <option value="">
+              Selecciona un género
+            </option>
+
+            <option value="novela">Novela</option>
+            <option value="cuento">Cuento</option>
+            <option value="poesía">Poesía</option>
+            <option value="ensayo">Ensayo</option>
+            <option value="ciencia ficción">Ciencia ficción</option>
+            <option value="fantasía">Fantasía</option>
+            <option value="otro">Otro</option>
+
+          </select>
+
+          <div class="invalid-feedback"></div>
+
+        </div>
+
+        <!-- correo electrónico -->
+        <div class="col-12 col-md-6">
+
+          <label for="correo" class="form-label">
+            Correo de quien propone
+          </label>
+
+          <input
+            class="form-control"
+            id="correo"
+            name="correo"
+            type="email"
+            required>
+
+          <div class="invalid-feedback"></div>
+
+        </div>
+
+        <!-- fecha de la sesión -->
+        <div class="col-12 col-md-6">
+
+          <label for="fecha" class="form-label">
+            Fecha de la sesión
+          </label>
+
+          <input
+            class="form-control"
+            id="fecha"
+            name="fecha"
+            type="date"
+            required>
+
+          <div class="invalid-feedback"></div>
+
+        </div>
+
+        <!-- motivo de la propuesta -->
+        <div class="col-12">
+
+          <label for="motivo" class="form-label">
+            Motivo de la propuesta
+          </label>
+
+          <textarea
+            class="form-control"
+            id="motivo"
+            name="motivo"
+            rows="4"
+            required
+            minlength="15"
+            maxlength="1000"
+            placeholder="Cuéntanos por qué recomiendas este libro..."></textarea>
+
+          <div class="invalid-feedback"></div>
+
+        </div>
+
+        <!-- botón para enviar la propuesta -->
+        <div class="col-12">
+
+          <button
+            id="enviar-propuesta"
+            class="btn btn-primary btn-lg"
+            type="submit">
+
+            Enviar propuesta
+
+          </button>
+
+        </div>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       pie de página
+       ========================================== -->
+  <footer class="bg-primary text-white py-4">
+
+    <div class="container">
+
+      <p class="mb-0">
+        Pura Lectura · Club de lectura de Costa Rica
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- ==========================================
+       ventana modal de detalles del libro
+       ========================================== -->
+  <div
+    class="modal fade"
+    id="modal-libro"
+    tabindex="-1"
+    aria-labelledby="modal-titulo"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <h2
+            class="modal-title fs-5"
+            id="modal-titulo">
+
+            Detalle del libro
+
+          </h2>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Cerrar">
+          </button>
+
+        </div>
+
+        <!-- contenido generado desde javascript -->
+        <div
+          class="modal-body"
+          id="modal-contenido">
+        </div>
+
+        <div class="modal-footer">
+
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-bs-dismiss="modal">
+
+            Cerrar
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- archivo principal de javascript -->
+  <script type="module" src="./js/main.js"></script>
+
+</body>
+</html>
